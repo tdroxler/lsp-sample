@@ -1,0 +1,34 @@
+{
+	"name": "lsp-sample",
+	"license": "MIT",
+	"version": "1.0.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/tdroxler/woods"
+	},
+	"categories": [],
+	"engines": {
+		"vscode": "^1.75.0"
+	},
+	"activationEvents": [
+		"onLanguage:scala"
+	],
+	"main": "./client/out/extension",
+	"scripts": {
+		"postinstall": "cd client && npm install && cd ..",
+		"compile": "tsc -b",
+		"build": "./node_modules/.bin/vsce package --no-dependencies"
+	},
+	"devDependencies": {
+		"@types/mocha": "^9.1.0",
+		"@types/node": "^16.18.34",
+		"@typescript-eslint/eslint-plugin": "^5.54.0",
+		"@typescript-eslint/parser": "^5.54.0",
+		"eslint": "^8.35.0",
+		"mocha": "^9.2.1",
+		"typescript": "^5.1.3"
+	},
+	"dependencies": {
+		"vsce": "^2.15.0"
+	}
+}
