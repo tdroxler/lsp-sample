@@ -16,22 +16,21 @@ let client: LanguageClient;
 
 export function activate(context: ExtensionContext) {
 
-	let serverExe = '/nix/store/drz11xynmmcj4iwp94jb16qvfhd8mck5-system-path/bin/metals';
 
 	// If the extension is launched in debug mode then the debug server options are used
 	// Otherwise the run options are used
 	const serverOptions: ServerOptions = {
-			run: {command: serverExe},
-        debug: {command: serverExe}
+		command: 'java',
+		args: ['-jar', '<PATH-TO>/ralph-lsp.jar'],
 	};
 
 	// Options to control the language client
 	const clientOptions: LanguageClientOptions = {
 		// Register the server for plain text documents
-		documentSelector: [{ 
-			 pattern: '**/*.scala'
-		},
-		]
+        documentSelector: [{pattern: '**/*.{ral,ralph}'}],
+        synchronize: {
+            fileEvents: workspace.createFileSystemWatcher('**/*.{ral,ralph}')
+        }
 	};
 
 	// Create the language client and start the client.

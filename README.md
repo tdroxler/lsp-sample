@@ -4,26 +4,6 @@ Copy/paste/adapted from https://github.com/microsoft/vscode-extension-samples/tr
 
 ## Install
 
-Change 
-
-```
-"activationEvents": [
-    "onLanguage:scala"
-]
-```
-
-In `package.json`
-
-and 
-
-```
-let serverExe = '/nix/store/drz11xynmmcj4iwp94jb16qvfhd8mck5-system-path/bin/metals';
-```
-
-in `client/src/extension.ts`
-
-then
-
 ```
 npm i
 npm run postinstall
